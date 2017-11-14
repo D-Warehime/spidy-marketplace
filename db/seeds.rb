@@ -7,7 +7,7 @@ User.destroy_all
   user = User.create(
     first_name: character.split[0],
     last_name: character.split[1],
-    password: Faker::Internet.password,
+    password: 'password',
     email: Faker::Internet.email,
     phone_number: Faker::PhoneNumber.cell_phone,
     location: Faker::Address.city,
