@@ -1,5 +1,27 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  devise_for :users
+  resource :profile, only: [:show, :edit, :update]
+
+  resources :jobs, only: [ :index, :show ] do
+    resources :job_contracts, only: [ :create, :new, :edit, :update ]
+  end
+
+  resources :companies, only: [ :show]
+  resources :job_contracts, only: [ :index ]
+
+  namespace :business do
+    resources :jobs, only: [ :index, :create, :new, :edit, :update ] do
+      resources :job_contracts, only: [ :index ]
+    end
+
+    resources :job_contracts, only: [ :index ] do
+      member do
+        patch 'accept'
+        patch 'decline'
+        patch 'pending'
+      end
+    end
+  end
 end
