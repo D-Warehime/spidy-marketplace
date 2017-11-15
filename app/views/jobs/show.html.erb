@@ -1,4 +1,5 @@
 <h1><%= @job.title %></h1>
+<h5><strong>Posted By: </strong><%= "#{@job.user.first_name} #{@job.user.last_name}, (#{@job.user.business_name})." %></h5>
 <h6><strong>Posted on: </strong><%= @job.created_at %></h6>
 <h4><strong>Located at: </strong><%= @job.location %></h4>
 <h4><strong>Wanted Skills: </strong><%= @job.skills %></h4>
