@@ -1,14 +1,16 @@
-<h1>Jobs</h1>
+ <h1>Local Jobs</h1>
 <% @jobs.each do |job| %>
 <div class="card">
 <h2><%= link_to "Looking for: #{job.title}", job_path(job) %></h2>
+<h5><strong>Posted By: </strong><%= "#{job.user.first_name} #{job.user.last_name}, (#{job.user.business_name})." %></h5>
+<h6><strong>Posted on: </strong><%= job.created_at %></h6>
 <h5><strong>Wanted Skills: </strong><%= job.skills %></h5>
 <h5><strong>Skill level: </strong><%= job.level %></h5>
 <h5><strong>Pay Range: </strong><%= job.pay_min %> to <%= job.pay_max %></h5>
 <h5><strong>Job Period: </strong><%= job.starting_date %> until <%= job.ending_date %></h5>
 <p><strong>Description: </strong></p>
 <%= job.description %>
-<h6>Posted on: <%= job.created_at %></h6>
+<br>
 </div>
 <% end %>
 
