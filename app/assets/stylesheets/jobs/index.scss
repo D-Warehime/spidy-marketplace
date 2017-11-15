@@ -1,10 +1,15 @@
 .card {
-  height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  height: 300px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.15);
   background-size: cover !important;
   background-position: center;
-  color: white;
+  color: black;
   position: relative;
+  transition: border-shadow 300ms ease;
+  border-radius: 3px;
+  &:hover {
+    box-shadow: 0 0 10px $spidy-green;
+  }
 }
 .card-user {
   position: absolute;
@@ -13,7 +18,7 @@
   width: 40px;
   border-radius: 50%;
 }
-.card-category {
+.job-title {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -42,7 +47,4 @@
   z-index: 2;
   background: black;
   opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
 }
