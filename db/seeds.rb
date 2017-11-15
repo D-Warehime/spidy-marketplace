@@ -22,8 +22,8 @@ User.destroy_all
     location: Faker::Address.city,
     pay_min: (10..20).to_a.sample,
     pay_max: (20..30).to_a.sample,
-    starting_date: Time.now - 1.weeks,
-    ending_date: Time.now + 3.weeks
+    starting_date: DateTime.now - 1.weeks,
+    ending_date: DateTime.now + 3.weeks
   )
   job.user = User.all[rand(User.all.length - 1)]
   job.save!

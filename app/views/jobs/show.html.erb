@@ -1,0 +1,19 @@
+<h1><%= @job.title %></h1>
+<h6><strong>Posted on: </strong><%= @job.created_at %></h6>
+<h4><strong>Located at: </strong><%= @job.location %></h4>
+<h4><strong>Wanted Skills: </strong><%= @job.skills %></h4>
+<h4><strong>Skill level: </strong><%= @job.level %></h4>
+<h4><strong>Pay Range: </strong><%= @job.pay_min %> to <%= @job.pay_max %></h4>
+<h4><strong>Job Period: </strong><%= @job.starting_date %> until <%= @job.ending_date %></h4>
+<p><strong>Description: </strong></p>
+<%= @job.description %>
+
+
+<!--
+t.string "industry"
+    t.string "location"
+    t.integer "pay_min"
+    t.integer "pay_max"
+    t.string "starting_date"
+    t.string "ending_date"
+    t.datetime "created_at", null: false -->
