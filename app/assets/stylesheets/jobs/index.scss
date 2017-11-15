@@ -7,6 +7,7 @@
   position: relative;
   transition: border-shadow 300ms ease;
   border-radius: 3px;
+  transition: box-shadow 150ms ease;
   &:hover {
     box-shadow: 0 0 10px $spidy-green;
   }
