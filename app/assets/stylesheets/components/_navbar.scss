@@ -18,6 +18,9 @@
     text-decoration: none;
     opacity: 0.8;
   }
+  &:focus {
+    outline: none;
+  }
 }
 
 /* User Avatar */
@@ -51,6 +54,11 @@
   }
   &:active {
     text-decoration: none;
+  }
+  &:focus {
+    text-decoration: none;
+    outline: none;
+    color: #616668;
   }
 }
 
@@ -97,6 +105,9 @@
   &:hover {
     opacity: 0.8;
   }
+  &:focus {
+    outline: none;
+  }
 }
 
 .spidy-name {
@@ -116,6 +127,8 @@
   }
   &:focus {
     text-decoration: none;
+    color: $spidy-green;
+    outline: none;
   }
 }
 
