@@ -28,7 +28,7 @@
 
     <% if user_signed_in? %>
     <!-- Links when logged in -->
-    <%= link_to "Create Job", "#", class: "navbar-wagon-item navbar-wagon-link text-center" %>
+    <%= link_to "Create Job", new_business_job_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
     <%= link_to "Nearby Jobs", jobs_path, class: "navbar-wagon-item navbar-wagon-link text-center" %>
     <%= link_to "About Us", "#", class: "navbar-wagon-item navbar-wagon-link text-center" %>
     <%= link_to "Help", "#", class: "navbar-wagon-item navbar-wagon-link text-center" %>
@@ -103,7 +103,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to "#" do %>
+          <%= link_to new_business_job_path do %>
           <i class="fa fa-certificate"></i> <%= t(".profile", default: "Create a Job") %>
           <% end %>
         </li>
