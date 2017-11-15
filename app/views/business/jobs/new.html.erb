@@ -1,0 +1,15 @@
+<h1>New Job</h1>
+<%= simple_form_for [:business, @job] do |f| %>
+<%= f.error_notification %>
+<%= f.input :title, label: "Job: " %>
+<%= f.input :description %>
+<%= f.input :skills %>
+<%= f.input :level %>
+<%= f.input :industry %>
+<%= f.input :location %>
+<%= f.input :pay_min %>
+<%= f.input :pay_max %>
+<%= f.input :starting_date %>
+<%= f.input :ending_date %>
+<%= f.button :submit %>
+<% end %>

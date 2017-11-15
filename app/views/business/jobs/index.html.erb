@@ -1,0 +1,20 @@
+
+<% if @jobs.size == 0 %>
+<h1>You Have No Jobs</h1>
+<%= link_to "Create a Job Temporary Button", new_business_job_path %>
+<% else %>
+<h1>My list of Jobs</h1>
+<% @jobs.each do |job| %>
+<h4><strong><%= link_to "Create a Job Temporary Button", new_business_job_path %></strong></h4>
+<h2><%= link_to job.title, job_path(job) %></h2>
+<h5><strong>Wanted Skills: </strong><%= job.skills %></h5>
+<h5><strong>Skill level: </strong><%= job.level %></h5>
+<h5><strong>Pay Range: </strong><%= job.pay_min %> to <%= job.pay_max %></h5>
+<h5><strong>Job Period: </strong><%= job.starting_date %> until <%= job.ending_date %></h5>
+<p><strong>Description: </strong></p>
+<%= job.description %>
+<h6>Posted on: <%= job.created_at %></h6>
+<%= link_to "Delete This Job (not possible if currently contracted)", "jobs/#{job.id}", method: :delete, data: { confirm: "Are you sure you want to Delete this Job?" } %>
+}
+<% end %>
+<% end %>

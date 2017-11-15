@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :job_contracts, only: [ :index ]
 
   namespace :business do
-    resources :jobs, only: [ :index, :create, :new, :edit, :update ] do
+    resources :jobs, only: [ :index, :create, :new, :edit, :update, :destroy ] do
       resources :job_contracts, only: [ :index ]
     end
 
