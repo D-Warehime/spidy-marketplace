@@ -13,6 +13,11 @@
 /* Logo */
 .navbar-wagon-brand img {
   height: 70px;
+  transition: opacity 150ms ease;
+  &:hover {
+    text-decoration: none;
+    opacity: 0.8;
+  }
 }
 
 /* User Avatar */
@@ -39,10 +44,14 @@
 .navbar-wagon-link {
   color: #616668;
   font-size: 14px;
-}
-.navbar-wagon-link:hover {
-  color: #da552f;
-  text-decoration: none;
+  transition: color 100ms ease;
+  &:hover {
+    color: $spidy-green;
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
 }
 
 /* Dropdown menu */
@@ -76,7 +85,56 @@
   border-top: 1px solid #E6E6E6;
 }
 
-.fa-bell:before {
-  position: relative;
-  left: 25px;
+.searchIcon
+{
+  color: #fff;
+}
+.searchButton
+{
+  background-color: $spidy-green;
+  border-radius: 1px;
+  transition: opacity 150ms ease;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+#spidy-name {
+  // font-family: "Coolveltica";
+  font-weight: bolder;
+  line-height: 1.1;
+  color: $spidy-green;
+  margin: 0;
+  padding-left: 10px;
+  a {
+    color: $spidy-green;
+    transition: opacity 150ms ease;
+    &:hover {
+      text-decoration: none;
+      opacity: 0.8;
+    }
+  }
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.search-bar {
+  max-width: 575px;
+}
+
+@media(max-width:992px) {
+  .navbar-wagon-item {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .fa-bell {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
