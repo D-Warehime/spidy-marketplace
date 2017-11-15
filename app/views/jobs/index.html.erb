@@ -1,14 +1,24 @@
 <h1>Jobs</h1>
 <% @jobs.each do |job| %>
 <div class="card">
-<h2><%= link_to "Looking for: #{job.title}", job_path(job) %></h2>
-<h5><strong>Wanted Skills: </strong><%= job.skills %></h5>
-<h5><strong>Skill level: </strong><%= job.level %></h5>
-<h5><strong>Pay Range: </strong><%= job.pay_min %> to <%= job.pay_max %></h5>
-<h5><strong>Job Period: </strong><%= job.starting_date %> until <%= job.ending_date %></h5>
-<p><strong>Description: </strong></p>
-<%= job.description %>
-<h6>Posted on: <%= job.created_at %></h6>
+  <div class="card-category">Looking For: <%=job.title.capitalize %></div>
+  <div class="card-description">
+
+
+  </div>
+  <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <a class="card-link" href="#" ></a>
+</div>
+
+<div class="card">
+  <h2><%= link_to "Looking for: #{job.title}", job_path(job) %></h2>
+  <h5><strong>Wanted Skills: </strong><%= job.skills %></h5>
+  <h5><strong>Skill level: </strong><%= job.level %></h5>
+  <h5><strong>Pay Range: </strong><%= job.pay_min %> to <%= job.pay_max %></h5>
+  <h5><strong>Job Period: </strong><%= job.starting_date %> until <%= job.ending_date %></h5>
+  <p><strong>Description: </strong></p>
+  <%= job.description %>
+  <h6>Posted on: <%= job.created_at %></h6>
 </div>
 <% end %>
 
