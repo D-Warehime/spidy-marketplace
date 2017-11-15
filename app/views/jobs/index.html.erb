@@ -1,23 +1,58 @@
-<h1>Jobs</h1>
-<% @jobs.each do |job| %>
-<div class="card">
-<h2><%= link_to "Looking for: #{job.title}", job_path(job) %></h2>
-<h5><strong>Wanted Skills: </strong><%= job.skills %></h5>
-<h5><strong>Skill level: </strong><%= job.level %></h5>
-<h5><strong>Pay Range: </strong><%= job.pay_min %> to <%= job.pay_max %></h5>
-<h5><strong>Job Period: </strong><%= job.starting_date %> until <%= job.ending_date %></h5>
-<p><strong>Description: </strong></p>
-<%= job.description %>
-<h6>Posted on: <%= job.created_at %></h6>
-</div>
-<% end %>
-
-
-<!--
-t.string "industry"
-    t.string "location"
-    t.integer "pay_min"
-    t.integer "pay_max"
-    t.string "starting_date"
-    t.string "ending_date"
-    t.datetime "created_at", null: false -->
+<div class="container">
+  <div class="row">
+    <h1 class="col-xs-10 col-xs-offset-1">
+      Jobs
+    </h1>
+    <% @jobs.each do |job| %>
+    <div class="card col-xs-10 col-xs-offset-1">
+      <div class="job-title">
+        <h2>
+          <%= link_to "Looking For: #{job.title.capitalize}", job_path(job) %>
+        </h2>
+      </div>
+      <div class="card-description">
+        <p>
+          <strong>
+            Posted By:
+          </strong>
+          <%= "#{job.user.first_name} #{job.user.last_name}, (#{job.user.business_name})." %>
+        </p>
+        <p>
+          <strong>
+            Recommended Skills:
+          </strong>
+          <%= job.skills %>
+        </p>
+        <p>
+          <strong>
+            Skill Level:
+          </strong>
+          <%= job.level %>
+        </p>
+        <p>
+          <strong>
+            Pay Range:
+          </strong>
+          <%= job.pay_min %> to <%= job.pay_max %>
+        </p>
+        <p>
+          <strong>
+            Job Period:
+          </strong>
+          <%= job.starting_date %> until <%= job.ending_date %>
+        </p>
+        <p>
+          <strong>
+            Description:
+          </strong>
+          <%= job.description %>
+        </p>
+        <p>
+          Posted on: <%= job.created_at %>
+        </p>
+      </div>
+      <% user_picture_url = job.user.facebook_picture_url || "http://placehold.it/30x30" %>
+      <img class="card-user" src=<%= user_picture_url %>>
+    </div>
+    <% end %>
+  </div>
