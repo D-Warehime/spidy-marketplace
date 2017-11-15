@@ -4,10 +4,8 @@
   <div class="logos">
     <%= link_to jobs_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "spidy-logo.svg" %>
-    <h1 id="spidy-name" class="hidden-xs">
-      <a href="#">spidy</a>
-    </h1>
     <% end %>
+    <%= link_to "spidy", jobs_path, class: "navbar-wagon-brand hidden-xs spidy-name" %>
   </div>
 
   <!-- Search Bar -->

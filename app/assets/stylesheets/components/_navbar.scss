@@ -99,23 +99,23 @@
   }
 }
 
-#spidy-name {
+.spidy-name {
   // font-family: "Coolveltica";
+  font-size: xx-large;
   font-weight: bolder;
   line-height: 1.1;
   color: $spidy-green;
   margin: 0;
   padding-left: 10px;
-  a {
+  color: $spidy-green;
+  transition: opacity 150ms ease;
+  &:hover {
     color: $spidy-green;
-    transition: opacity 150ms ease;
-    &:hover {
-      text-decoration: none;
-      opacity: 0.8;
-    }
-    &:focus {
-      text-decoration: none;
-    }
+    text-decoration: none;
+    opacity: 0.8;
+  }
+  &:focus {
+    text-decoration: none;
   }
 }
 
