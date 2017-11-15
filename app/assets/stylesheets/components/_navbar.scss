@@ -127,6 +127,9 @@
 }
 
 @media(max-width:992px) {
+  .dropdown-toggle {
+    padding-left: 15px;
+  }
   .navbar-wagon-item {
     display: flex;
     align-items: center;
