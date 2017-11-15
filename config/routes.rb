@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  authenticated do
+    root to: 'jobs#index'
+  end
   root to: 'pages#home'
 
   devise_for :users,
-      controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resource :profile, only: [:show, :edit, :update]
 
 
