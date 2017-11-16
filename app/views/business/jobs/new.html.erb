@@ -7,8 +7,10 @@
 <%= f.input :level %>
 <%= f.input :industry %>
 <%= f.input :location %>
-<%= f.input :pay_min %>
-<%= f.input :pay_max %>
+<div class="form-inline">
+  <%= f.input :payment %>
+  <%= f.input :payment_unit, collection: %w(contract hr day week) %>
+</div>
 <%= f.input :starting_date %>
 <%= f.input :ending_date %>
 <%= f.button :submit %>

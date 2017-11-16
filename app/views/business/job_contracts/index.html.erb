@@ -1,0 +1,46 @@
+<ul>
+  <% @job_contracts.each do |contract| %>
+  <li>
+    <div>
+      Position:
+      <strong>
+        <%= contract.job.title %>
+      </strong>
+    </div>
+    Posted by:
+    <strong>
+      <%= contract.user.first_name %> <%= contract.user.last_name %>
+    </strong>
+    <p class="price-offer">
+      Price Offer:
+      <strong>
+       <%= contract.price %> / <%= contract.payment_unit %>
+     </strong>
+   </p>
+   <div>
+    Request to Negotiate:
+    <strong>
+      <% if contract.negotiations %>
+      true
+      <% else %>
+      false
+      <% end %>
+    </strong>
+  </div>
+  <div class="status">
+    Status:
+    <strong>
+      <% if contract.status == nil || 0 %>
+      Pending
+      <% elsif contract.status == 1 %>
+      Declined
+      <% elsif contract.status == 2 %>
+      Accepted
+      <% elsif contract.status == 3 %>
+      Completed
+      <% end %>
+    </strong>
+  </div>
+</li>
+<% end %>
+</ul>

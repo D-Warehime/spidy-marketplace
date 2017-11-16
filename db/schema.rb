@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20171116144853) do
 
   # These are extensions that must be enabled in order to support this database
@@ -36,14 +37,13 @@ ActiveRecord::Schema.define(version: 20171116144853) do
     t.string "level"
     t.string "industry"
     t.string "location"
-    t.integer "pay_min"
-    t.integer "pay_max"
     t.string "starting_date"
     t.string "ending_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "payment_unit", default: "hr"
+    t.integer "payment"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
