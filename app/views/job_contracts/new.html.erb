@@ -20,19 +20,17 @@
   </strong>
   <% end %>
 </h4>
-<% if @job_contract.job.pay_min && @job_contract.job.pay_max %>
 <h4>
-  Current pay window:
-  <%= @job_contract.job.user.payment_currency %><%= @job_contract.job.pay_min %> to <%= @job_contract.job.user.payment_currency %><%= @job_contract.job.pay_max %> / <%= @job_contract.payment_unit %>
+  Current offered pay:
+  <%= @job_contract.job.user.payment_currency %><%= @job_contract.job.payment %> / <%= @job_contract.payment_unit %>
 </h4>
-<% else %>
-  Base Pay: <%= @job_contract.job.user.payment_currency %>13 /hr
-<% end %>
 
-<%= simple_form_for [@job, @job_contract] do |f| %>
-<%= f.input :negotiations, label: "Negotiate Price" %>
-<%= f.input :price, visibility: "hidden" %>
-<%= f.input :payment_unit %>
+<%= simple_form_for [@job, @job_contract], html: { id: "job_contract_form" } do |f| %>
+<%= f.input :negotiations, label: "Negotiate Price", input_html: { id: "negotiation_for_contract" } %>
+<div class="hidden form-inline" id="show-on-accept">
+  <%= f.input :price %>
+  <%= f.input :payment_unit, collection: %w(contract hr day week) %>
+</div>
 <%= f.submit "Apply for Contract", class: "btn btn-primary" %>
 <% end %>
 

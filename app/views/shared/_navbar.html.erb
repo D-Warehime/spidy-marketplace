@@ -52,8 +52,8 @@
             <% end %>
           </li>
           <li>
-            <%= link_to "#" do %>
-            <i class="fa fa-book"></i>  <%= t(".profile", default: "Open Contracts") %>
+            <%= link_to business_job_contracts_path do %>
+            <i class="fa fa-book"></i>  <%= t(".profile", default: "Contracts") %>
             <% end %>
           </li>
           <li>
@@ -67,8 +67,8 @@
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa fa-cog"></i>  <%= t(".sign_out", default: "Settings") %>
+            <%= link_to "#" do %>
+            <i class="fa fa-cog"></i>  <%= t(".profile", default: "Settings") %>
             <% end %>
           </li>
           <li>
