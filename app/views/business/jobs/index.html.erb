@@ -4,7 +4,6 @@
 <% else %>
 <h1>My list of Jobs</h1>
 <% @jobs.each do |job| %>
-<h4><strong><%= link_to "Create a Job", new_business_job_path %></strong></h4>
 <h2><%= link_to job.title, job_path(job) %></h2>
 <h5><strong>Wanted Skills: </strong><%= job.skills %></h5>
 <h5><strong>Skill level: </strong><%= job.level %></h5>
