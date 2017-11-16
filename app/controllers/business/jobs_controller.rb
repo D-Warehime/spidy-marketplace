@@ -29,6 +29,6 @@ class Business::JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :skills, :level, :industry, :location, :pay_min, :pay_max, :starting_date, :ending_date)
+    params.require(:job).permit(:title, :description, :skills, :level, :industry, :location, :payment, :payment_unit, :starting_date, :ending_date)
   end
 end
