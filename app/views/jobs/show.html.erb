@@ -12,7 +12,10 @@ data: { confirm: 'Are you sure?' }, method: :delete %>
   <strong>
     Posted By:
   </strong>
-  <%= "#{@job.user.first_name} #{@job.user.last_name}" %>
+
+<%= link_to "#{@job.user.first_name} #{@job.user.last_name}", profile_path(@job.user.id) %>
+
+
   <% if @job.user.business_name %>
   , (<%= @job.user.business_name %>)
   <% end %>
