@@ -1,5 +1,5 @@
 class JobContractsController < ApplicationController
-  before_action :find_job
+  before_action :find_job, only: { :new, :create }
 
   def new
     @job_contract = JobContract.new
@@ -11,8 +11,8 @@ class JobContractsController < ApplicationController
     @job_contract = JobContract.new(job_contract_params)
     @job_contract.job = @job
     @job_contract.user = current_user
-    if @job_contract.save
-      redirect_to job_path(@job)
+    if @job_contract.save!
+      redirect_to jobs_path(@job)
     else
       render :new
     end

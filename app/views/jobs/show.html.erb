@@ -21,7 +21,7 @@ data: { confirm: 'Are you sure?' }, method: :delete %>
 <h4><strong>Located at: </strong><%= @job.location %></h4>
 <h4><strong>Wanted Skills: </strong><%= @job.skills %></h4>
 <h4><strong>Skill level: </strong><%= @job.level %></h4>
-<h4><strong>Pay Range: </strong><%= @job.pay_min %> to <%= @job.pay_max %> / <%= @job.payment_unit %></h4>
+<h4><strong>Hourly Pay: </strong><%= @job.user.payment_currency %><%= @job.payment %></h4>
 <h4><strong>Job Period: </strong><%= @job.starting_date %> until <%= @job.ending_date %></h4>
 <p><strong>Description: </strong><%= @job.description %></p>
 
@@ -39,16 +39,18 @@ data: { confirm: 'Are you sure?' }, method: :delete %>
 </strong>
 <p>
   Price Offer:
-  <%= contract.price %> / <%= contract.payment_unit %>
+  <%= contract.job.user.payment_currency %><%= contract.price %> / <%= contract.payment_unit %>
 </p>
 <p>
   Status:
   <% if contract.status == nil || 0 %>
-  Contract Pending
+  Pending
   <% elsif contract.status == 1 %>
-  Contract Declined
+  Declined
   <% elsif contract.status == 2 %>
-  Contract Accepted
+  Accepted
+  <% elsif contract.status == 3 %>
+  Completed
   <% end %>
 </p>
 <% elsif contract.job.user == current_user %>
@@ -69,11 +71,13 @@ Posted by:
 <div class="status">
   Status:
   <% if contract.status == nil || 0 %>
-  Contract Pending
+  Pending
   <% elsif contract.status == 1 %>
-  Contract Declined
+  Declined
   <% elsif contract.status == 2 %>
-  Contract Accepted
+  Accepted
+  <% elsif contract.status == 3 %>
+  Completed
   <% end %>
 </div>
 <% end %>

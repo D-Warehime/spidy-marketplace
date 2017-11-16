@@ -7,8 +7,8 @@
 <%= f.input :level %>
 <%= f.input :industry %>
 <%= f.input :location %>
-<%= f.input :pay_min %>
-<%= f.input :pay_max %>
+<%= f.input :payment %>
+<%= f.input :payment_unit, collection: %w(contract hr day week) %>
 <%= f.input :starting_date %>
 <%= f.input :ending_date %>
 <%= f.button :submit %>

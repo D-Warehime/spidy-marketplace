@@ -8,7 +8,7 @@
 <h2><%= link_to job.title, job_path(job) %></h2>
 <h5><strong>Wanted Skills: </strong><%= job.skills %></h5>
 <h5><strong>Skill level: </strong><%= job.level %></h5>
-<h5><strong>Pay Range: </strong><%= job.pay_min %> to <%= job.pay_max %></h5>
+<h5><strong>Hourly Pay: </strong><%= job.user.payment_currency %><%= job.payment %></h5>
 <h5><strong>Job Period: </strong><%= job.starting_date %> until <%= job.ending_date %></h5>
 <p><strong>Description: </strong></p>
 <%= job.description %>
