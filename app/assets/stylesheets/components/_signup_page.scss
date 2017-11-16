@@ -1,0 +1,25 @@
+.signup-banner {
+  background-image: url('https://fthmb.tqn.com/OjujAvFTq54nNG494RwndwdD74Y=/3867x2578/filters:no_upscale():fill(transparent,1)/GettyImages-547497265-56670fab5f9b583dc3a5cb0b.jpg');
+  width: 100vw;
+  background-size: cover !important;
+
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  height: 85vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  position: relative;
+
+}
+
+.signup-card {
+  width: 35vw;
+  min-width: 320px;
+  background-color: $light-gray;
+  opacity: 1;
+  padding: 20px;
+  border-radius: 3px;
+}
