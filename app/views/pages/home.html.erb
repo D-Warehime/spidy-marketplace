@@ -1,45 +1,39 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Material design sign up form</title>
-</head>
 
 <body>
-
-  <div id="signup-box">
-
-    <div class="banner col-xs-8">
-
-    </div>
-    <div class="col-xs-4">
-      <div class="general-input">
-
-        <h1 class="text-center">Sign up</h1>
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-
+  <div class="banner" style="background-image: linear-gradient(-225deg, rgba(31, 27, 37, 0.6) 0%, rgba(28, 79, 102, 0.2) 50%), url('https://s3.amazonaws.com/fjwp/blog/wp-content/uploads/2016/01/18050645/Most-Common-Work-from-Home-Job-Titles.jpg');">
+  <div class="container-signup">
+    <div class="signup-box">
+      <div class="normal-signup">
         <div class="left-signup">
-          <%= f.input :first_name, required: true %>
-          <%= f.input :last_name, required: true %>
-          <%= f.input :email, required: true, autofocus: true %>
-          <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-          <%= f.input :password_confirmation, required: true %>
-          <%= f.button :submit, "Sign up" %>
+          <h1 class="text-center">Sign up</h1>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="registration-form">
+            <%= f.input :first_name, required: true, input_html: {class: "input-field-signup"} %>
+            <%= f.input :last_name, required: true %>
+            <%= f.input :email, required: true, autofocus: true %>
+            <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+            <%= f.input :password_confirmation, required: true %>
+            <%= f.button :submit, "Sign up" %>
+          </div>
+
         </div>
       </div>
-
-      <div class="right-signup">
-        <h1 class="text-center">Sign up with</h1>
-        <%= render 'shared/facebook_login' %>
-
+      <div class="social-signup">
+       <div class="right-signup">
+        <h1 class="r-signup-text">Sign up with</h1>
+        <%= render 'shared/facebook_login', input_html: {class: "center"} %>
 
         <% end %>
       </div>
-
+    </div>
 
     </div>
-    <div class="or">OR</div>
   </div>
+</div>
+
+
+</div>
 </body>
-</html>
+

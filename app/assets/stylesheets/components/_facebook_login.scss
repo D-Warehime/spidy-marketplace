@@ -1,12 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
-
 .btn-facebook {
   background: $fb-blue;
   border-radius: 0px;
   color: #32508E;
   margin-top: 10px;
   transition: all ease 0.15s;
-  font-family: 'Roboto';
+  font-family: 'Raleway', sans-serif;
   font-weight: 500;
   font-size: 15px;
   &:active {
