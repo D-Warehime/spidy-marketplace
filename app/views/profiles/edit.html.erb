@@ -1,0 +1,22 @@
+<div class="profile-container">
+<div class="edit-profile-card">
+<%= simple_form_for(@profile, as: @profile, url: profile_path(@profile), html: { method: :put }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :first_name, label: "First Name: ", placeholder: @profile.first_name, required: true %>
+    <%= f.input :last_name, label: "Last Name: ", placeholder: @profile.last_name, required: true %>
+    <%= f.input :email, label: "Email: ", placeholder: @profile.email, required: true, autofocus: true %>
+    <%= f.input :phone_number, label: "Phone Number: ", placeholder: @profile.phone_number %>
+    <p><strong>Description: </strong></p>
+    <%= f.text_area :description, placeholder: @profile.description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save Changes" %>
+  </div>
+  <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
+<% end %>
+
+</div>
+</div>

@@ -1,0 +1,39 @@
+.profile-container {
+  margin-top: 1px;
+  background-color: $spidy-green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile-header-card {
+  width: 85vw;
+  background-color: $light-gray;
+  margin: 15px;
+  border-radius: 2px;
+}
+
+.profile-body-card {
+  width: 85vw;
+  background-color: $light-gray;
+  margin: 15px;
+  border-radius: 2px;
+}
+
+
+
+.profile-avatar {
+  border-radius: 50%;
+  width: 250px;
+}
+
+.edit-profile-card {
+  width: 90vw;
+  background-color: $light-gray;
+  margin: 15px;
+  border-radius: 2px;
+  padding: 15px;
+}
+
+

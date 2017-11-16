@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  resource :profile, only: [ :show, :edit, :update ]
+  # resource :profile, only: [ :show, :edit, :update ]
+  get 'profile/:id', to: "profiles#show", as: "profile"
+  get 'profile/:id/edit', to: "profiles#edit", as: "edit_profile"
+  put 'profile/:id', to: "profiles#update"
 
 
   resources :jobs, only: [ :index, :show ] do
