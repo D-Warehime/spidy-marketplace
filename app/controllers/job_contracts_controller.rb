@@ -1,5 +1,5 @@
 class JobContractsController < ApplicationController
-  before_action :find_job, only: { :new, :create }
+  before_action :find_job
 
   def new
     @job_contract = JobContract.new
