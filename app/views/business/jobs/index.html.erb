@@ -1,4 +1,3 @@
-
 <% if @jobs.size == 0 %>
 <h1>You Have No Jobs</h1>
 <%= link_to "Create a Job", new_business_job_path %>
@@ -15,6 +14,5 @@
 <%= job.description %>
 <h6>Posted on: <%= job.created_at %></h6>
 <%= link_to "Delete This Job (not possible if currently contracted)", "jobs/#{job.id}", method: :delete, data: { confirm: "Are you sure you want to Delete this Job?" } %>
-}
 <% end %>
 <% end %>

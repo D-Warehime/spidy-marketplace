@@ -9,6 +9,8 @@ class PagesController < ApplicationController
 
   private
 
+  helper_method :resource_class
+
   def resource_name
     :user
   end
@@ -27,5 +29,4 @@ class PagesController < ApplicationController
   def resource_class
     User
   end
-  helper_method :resource_class
 end

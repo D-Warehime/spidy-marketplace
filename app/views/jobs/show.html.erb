@@ -1,20 +1,80 @@
+<% if user_signed_in? %>
+<% if current_user != @job.user && !applied?(current_user, @job) %>
+<%= link_to "Apply for Job", new_job_job_contract_path(@job), class: "btn btn-primary"%>
+<% end %>
+<% if current_user == @job.user %>
+<%= link_to 'Delete This Job', business_job_path(@job),
+data: { confirm: 'Are you sure?' }, method: :delete %>
+<% end %>
+<% end %>
 <h1><%= @job.title %></h1>
-<h5><strong>Posted By: </strong><%= "#{@job.user.first_name} #{@job.user.last_name}, (#{@job.user.business_name})." %></h5>
+<h5>
+  <strong>
+    Posted By:
+  </strong>
+  <%= "#{@job.user.first_name} #{@job.user.last_name}" %>
+  <% if @job.user.business_name %>
+  , (<%= @job.user.business_name %>)
+  <% end %>
+</h5>
 <h6><strong>Posted on: </strong><%= @job.created_at %></h6>
 <h4><strong>Located at: </strong><%= @job.location %></h4>
 <h4><strong>Wanted Skills: </strong><%= @job.skills %></h4>
 <h4><strong>Skill level: </strong><%= @job.level %></h4>
-<h4><strong>Pay Range: </strong><%= @job.pay_min %> to <%= @job.pay_max %></h4>
+<h4><strong>Pay Range: </strong><%= @job.pay_min %> to <%= @job.pay_max %> / <%= @job.payment_unit %></h4>
 <h4><strong>Job Period: </strong><%= @job.starting_date %> until <%= @job.ending_date %></h4>
-<p><strong>Description: </strong></p>
-<%= @job.description %>
+<p><strong>Description: </strong><%= @job.description %></p>
 
-
-<!--
-t.string "industry"
-    t.string "location"
-    t.integer "pay_min"
-    t.integer "pay_max"
-    t.string "starting_date"
-    t.string "ending_date"
-    t.datetime "created_at", null: false -->
+<% display_contract = false %>
+<% @job.job_contracts.all.each do |contract| %>
+<% if contract.user == current_user %>
+<% unless display_contract %>
+<% display_contract = true %>
+<h4>
+  Current Contract:
+</h4>
+<% end %>
+<strong>
+  <%= contract.user.first_name %> <%= contract.user.last_name %>
+</strong>
+<p>
+  Price Offer:
+  <%= contract.price %> / <%= contract.payment_unit %>
+</p>
+<p>
+  Status:
+  <% if contract.status == nil || 0 %>
+  Contract Pending
+  <% elsif contract.status == 1 %>
+  Contract Declined
+  <% elsif contract.status == 2 %>
+  Contract Accepted
+  <% end %>
+</p>
+<% elsif contract.job.user == current_user %>
+<% unless display_contract %>
+<% display_contract = true %>
+<h4>
+  Pending Contracts:
+</h4>
+<% end %>
+Posted by:
+<strong>
+  <%= contract.user.first_name %> <%= contract.user.last_name %>
+</strong>
+<p>
+  Price Offer:
+  <%= contract.price %> / <%= contract.payment_unit %>
+</p>
+<div class="status">
+  Status:
+  <% if contract.status == nil || 0 %>
+  Contract Pending
+  <% elsif contract.status == 1 %>
+  Contract Declined
+  <% elsif contract.status == 2 %>
+  Contract Accepted
+  <% end %>
+</div>
+<% end %>
+<% end %>

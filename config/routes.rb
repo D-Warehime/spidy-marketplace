@@ -6,18 +6,17 @@ Rails.application.routes.draw do
 
   devise_for :users,
   controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-  resource :profile, only: [:show, :edit, :update]
+  resource :profile, only: [ :show, :edit, :update ]
 
 
   resources :jobs, only: [ :index, :show ] do
-    resources :job_contracts, only: [ :create, :new, :edit, :update ]
+    resources :job_contracts, only: [ :new, :create, :edit, :update ]
   end
 
-  resources :companies, only: [ :show]
-  resources :job_contracts, only: [ :index ]
+  resources :companies, only: [ :show ]
 
   namespace :business do
-    resources :jobs, only: [ :index, :create, :new, :edit, :update, :destroy ] do
+    resources :jobs, only: [ :index, :new, :create, :edit, :update, :destroy ] do
       resources :job_contracts, only: [ :index ]
     end
 

@@ -52,6 +52,11 @@
             <% end %>
           </li>
           <li>
+            <%= link_to "#" do %>
+            <i class="fa fa-book"></i>  <%= t(".profile", default: "Open Contracts") %>
+            <% end %>
+          </li>
+          <li>
             <%= link_to business_jobs_path do %>
             <i class="fa fa-clock-o"></i>  <%= t(".profile", default: "Previous Jobs") %>
             <% end %>
@@ -113,6 +118,11 @@
         <li>
           <%= link_to "#" do %>
           <i class="fa fa-comments"></i> <%= t(".profile", default: "Messages") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#" do %>
+          <i class="fa fa-book"></i>  <%= t(".profile", default: "Open Contracts") %>
           <% end %>
         </li>
         <li>
