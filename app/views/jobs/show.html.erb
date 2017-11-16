@@ -2,7 +2,8 @@
 <%= link_to "Apply for Job", new_job_job_contract_path(@job), class: "btn btn-primary"%>
 <% end %>
 <% if current_user == @job.user %>
-<%= link_to 'Delete This Job (not possible if currently contracted)',  "jobs/#{@job.id}",  method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Delete This Job', business_job_path(@job),
+    data: { confirm: 'Are you sure?' }, method: :delete %>
 <% end %>
 <h1><%= @job.title %></h1>
 <h5><strong>Posted By: </strong><%= "#{@job.user.first_name} #{@job.user.last_name}, (#{@job.user.business_name})." %></h5>
