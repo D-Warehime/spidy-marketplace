@@ -1,17 +1,27 @@
+<% if user_signed_in? %>
 <% if current_user != @job.user && !applied?(current_user, @job) %>
 <%= link_to "Apply for Job", new_job_job_contract_path(@job), class: "btn btn-primary"%>
 <% end %>
 <% if current_user == @job.user %>
 <%= link_to 'Delete This Job', business_job_path(@job),
-    data: { confirm: 'Are you sure?' }, method: :delete %>
+data: { confirm: 'Are you sure?' }, method: :delete %>
+<% end %>
 <% end %>
 <h1><%= @job.title %></h1>
-<h5><strong>Posted By: </strong><%= "#{@job.user.first_name} #{@job.user.last_name}, (#{@job.user.business_name})." %></h5>
+<h5>
+  <strong>
+    Posted By:
+  </strong>
+  <%= "#{@job.user.first_name} #{@job.user.last_name}" %>
+  <% if @job.user.business_name %>
+  , (<%= @job.user.business_name %>)
+  <% end %>
+</h5>
 <h6><strong>Posted on: </strong><%= @job.created_at %></h6>
 <h4><strong>Located at: </strong><%= @job.location %></h4>
 <h4><strong>Wanted Skills: </strong><%= @job.skills %></h4>
 <h4><strong>Skill level: </strong><%= @job.level %></h4>
-<h4><strong>Pay Range: </strong><%= @job.pay_min %> to <%= @job.pay_max %></h4>
+<h4><strong>Pay Range: </strong><%= @job.pay_min %> to <%= @job.pay_max %> / <%= @job.payment_unit %></h4>
 <h4><strong>Job Period: </strong><%= @job.starting_date %> until <%= @job.ending_date %></h4>
 <p><strong>Description: </strong><%= @job.description %></p>
 
