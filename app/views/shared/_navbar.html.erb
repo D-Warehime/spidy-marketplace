@@ -5,7 +5,6 @@
     <%= link_to jobs_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "spidy-logo.svg" %>
     <% end %>
-    <%= link_to "spidy", jobs_path, class: "navbar-wagon-brand hidden-xs spidy-name" %>
   </div>
 
   <!-- Search Bar -->
@@ -83,8 +82,11 @@
     <% else %>
     <!-- Login link (when logged out) -->
     <%= link_to "Nearby Jobs", jobs_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    |
     <%= link_to "About Us", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+    |
     <%= link_to "Help", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+    |
     <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
