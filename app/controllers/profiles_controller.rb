@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update]
+  skip_before_action :authenticate_user!, only: [ :show ]
 
   def show
     if (@profile.facebook_picture_url) == nil
@@ -21,7 +22,7 @@ class ProfilesController < ApplicationController
   private
 
   def set_profile
-    if current_user.id == User.find(params[:id])
+    if user_signed_in? && current_user.id == User.find(params[:id])
       @profile = current_user
     else
       @profile = User.find(params[:id])
