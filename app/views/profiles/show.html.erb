@@ -1,0 +1,67 @@
+<div class="profile-container text-center">
+
+  <div class="profile-header-card">
+
+    <% user_picture_url = @profile_picture_url || "http://placehold.it/50x50" %>
+    <img class="profile-avatar" src=<%= user_picture_url %>>
+    <br>
+    <%= "#{@profile.first_name} #{@profile.last_name}" %>
+    <br>
+    <%= link_to edit_profile_path(@profile) do %>
+            <i class="fa fa-pencil-square-o"></i> <%= t(".edit", default: "Edit Profile") %>
+            <% end %>
+  </div>
+
+  <div class="profile-body-card">
+    <%= @profile.phone_number %>
+    <br>
+    <%= @profile.email %>
+  </div>
+
+  <div class="profile-body-card">
+    <h4><strong>Description: </strong></h4>
+    <br>
+    <%= @profile.description %>
+  </div>
+
+  <div class="profile-body-card">
+    <h4><strong>Completed Contracts: </strong></h4>
+    <br>
+    <p>Display Contracts marked as Complete here</p>
+  </div>
+
+
+</div>
+<!--
+USER TABLE INFO
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.string "location"
+    t.string "business_name"
+    t.integer "pay_per_hour"
+    t.string "payment_currency", default: "€" -->
+
+
+<!-- JOB CONTRACTS TABLE INFO
+  t.integer "status", default: 0
+    t.integer "price"
+    t.string "payment_unit", default: "hr"
+    t.integer "freelancer_rating"
+    t.boolean "negotiations"
+    t.bigint "job_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false -->
