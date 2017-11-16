@@ -15,7 +15,10 @@
           <strong>
             Posted By:
           </strong>
-          <%= "#{job.user.first_name} #{job.user.last_name}, (#{job.user.business_name})." %>
+          <%= "#{job.user.first_name} #{job.user.last_name}" %>
+          <% if job.user.business_name %>
+          , (<%= job.user.business_name %>)
+          <% end %>
         </p>
         <p>
           <strong>

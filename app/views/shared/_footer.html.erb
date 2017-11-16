@@ -1,6 +1,8 @@
 <div class="footer">
   <div class="footer-links">
-    <a href="#"><i class="fa fa-facebook"></i></a>
+    <%= link_to "https://www.facebook.com/#{ current_user.uid if user_signed_in? }" do %>
+      <i class="fa fa-facebook"></i>
+    <% end %>
     <a href="#"><i class="fa fa-linkedin"></i></a>
     <a href="#"><i class="fa fa-google-plus"></i></a>
     <a href="#"><i class="fa fa-vimeo"></i></a>
