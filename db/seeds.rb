@@ -20,8 +20,7 @@ User.destroy_all
     level: ['lead', 'beginner', 'high-school', 'phd', 'masters'].sample,
     industry: Faker::Job.field,
     location: Faker::Address.city,
-    pay_min: (10..20).to_a.sample,
-    pay_max: (20..30).to_a.sample,
+    payment: (10..20).to_a.sample,
     starting_date: DateTime.now - 1.weeks,
     ending_date: DateTime.now + 3.weeks
   )
@@ -31,7 +30,7 @@ User.destroy_all
   job_contract = JobContract.new(
     status: [0, 1, 2].sample,
     price: (15..25).to_a.sample,
-    payment_unit: ['contract', 'hr', 'day', 'week', 'month'].sample,
+    payment_unit: ['contract', 'hr', 'day', 'week'].sample,
     freelancer_rating: (0..5).to_a.sample,
     negotiations: [true, false].sample,
   )
