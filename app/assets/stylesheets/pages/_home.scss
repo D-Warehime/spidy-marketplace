@@ -177,14 +177,16 @@ h1 {
   background-color: white;
 }
 
-.center {
-    margin: 0 auto;
+.facebook_button {
+  text-align: center;
+  margin: auto;
 }
 
 .banner {
 
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
+  height: 85vh;
 }
 
 
