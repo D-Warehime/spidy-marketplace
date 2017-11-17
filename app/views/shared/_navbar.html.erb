@@ -52,7 +52,12 @@
           </li>
           <li>
             <%= link_to business_job_contracts_path do %>
-            <i class="fa fa-book"></i>  <%= t(".profile", default: "Submitted Contracts") %>
+            <i class="fa fa-book"></i>  <%= t(".profile", default: "My Contracts") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to business_job_contracts_path do %>
+            <i class="fa fa-book"></i>  <%= t(".profile", default: "Received Contracts") %>
             <% end %>
           </li>
           <li>
