@@ -1,10 +1,14 @@
 <% if user_signed_in? %>
 <% if current_user != @job.user && !applied?(current_user, @job) %>
-<%= link_to "Apply for Job", new_job_job_contract_path(@job), class: "btn btn-primary"%>
+<%= link_to new_job_job_contract_path(@job) do%>
+<%= render 'shared/button', val: "Apply for Job", type: "apply" %>
+<% end %>
 <% end %>
 <% if current_user == @job.user && !completed?(@job) %>
-<%= link_to 'Delete This Job', business_job_path(@job),
-data: { confirm: 'Are you sure?' }, method: :delete %>
+<%= link_to business_job_path(@job),
+data: { confirm: 'Are you sure?' }, method: :delete do %>
+<%= render 'shared/button', val: "Delete", type: "delete" %>
+<% end %>
 <% end %>
 <% end %>
 <h1><%= @job.title %></h1>
