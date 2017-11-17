@@ -2,7 +2,7 @@ JobContract.destroy_all
 Job.destroy_all
 User.destroy_all
 
-15.times do
+25.times do
   character = Faker::RickAndMorty.character
   user = User.create(
     first_name: character.split[0],
@@ -15,14 +15,14 @@ User.destroy_all
   )
   job = Job.new(
     skills: Faker::Job.key_skill,
-    description: Faker::Lorem.sentence(15),
+    description: Faker::Company.catch_phrase,
     title: Faker::Job.title,
     level: ['lead', 'beginner', 'high-school', 'phd', 'masters'].sample,
     industry: Faker::Job.field,
     location: Faker::Address.city,
     payment: (10..20).to_a.sample,
-    starting_date: DateTime.now - 1.weeks,
-    ending_date: DateTime.now + 3.weeks
+    starting_date: Faker::Date.between((1..30).to_a.sample.days.ago, Date.today),
+    ending_date: Faker::Date.between(Date.today, Date.today)
   )
   job.user = User.all[rand(User.all.length - 1)]
   job.save!
