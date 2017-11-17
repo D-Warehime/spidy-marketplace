@@ -23,7 +23,10 @@
 <%= job.description %>
 <h6>Posted on: <%= job.created_at %></h6>
 <% unless completed?(job) %>
-<%= link_to "Delete This Job", "jobs/#{job.id}", method: :delete, data: { confirm: "Are you sure you want to Delete this Job?" } %>
+<%= link_to business_job_path(job),
+data: { confirm: 'Are you sure?' }, method: :delete do %>
+<%= render 'shared/button', val: "Delete", type: "delete" %>
+<% end %>
 <% end %>
 <% end %>
 <% end %>
