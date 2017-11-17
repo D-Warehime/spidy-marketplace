@@ -35,7 +35,7 @@ data: { confirm: 'Are you sure?' }, method: :delete %>
 <% unless display_contract %>
 <% display_contract = true %>
 <h4>
-  Current Contract(s):
+  Current Contract Offer(s):
 </h4>
 <% end %>
 <strong>
@@ -50,14 +50,13 @@ data: { confirm: 'Are you sure?' }, method: :delete %>
   <%= print_status(contract) %>
 </p>
 <% elsif contract.job.user == current_user %>
+<% if completed?(@job) %>
 <% unless display_contract %>
 <% display_contract = true %>
-<% if completed?(@job) %>
 <h4>
   Completed Contract:
 </h4>
 <% completed_contract = completed_contract(@job) %>
-<% end %>
 Posted by:
 <strong>
   <%= completed_contract.user.first_name %> <%= completed_contract.user.last_name %>
@@ -66,10 +65,19 @@ Posted by:
   Price Offer:
   <%= completed_contract.price %> / <%= completed_contract.payment_unit %>
 </p>
+<% end %>
 <% else %>
 <h4>
   Pending Contracts:
 </h4>
+Posted by:
+<strong>
+  <%= contract.user.first_name %> <%= contract.user.last_name %>
+</strong>
+<p>
+  Price Offer:
+  <%= contract.price %> / <%= contract.payment_unit %>
+</p>
 <div class="status">
   Status:
   <%= print_status(contract) %>
