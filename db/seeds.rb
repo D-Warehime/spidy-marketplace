@@ -3,10 +3,9 @@ Job.destroy_all
 User.destroy_all
 
 25.times do
-  character = Faker::RickAndMorty.character
   user = User.create(
-    first_name: character.split[0],
-    last_name: character.split[1],
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
     password: 'password',
     email: Faker::Internet.email,
     phone_number: Faker::PhoneNumber.cell_phone,

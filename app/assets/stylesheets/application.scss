@@ -18,6 +18,9 @@
 @import "jobs/index";
 @import "jobs/show";
 
-// Business' CSS
-@import "business/job_contracts/index"
+// Job Contracts CSS
+@import "job_contracts/new";
 
+// Business' CSS
+@import "business/job_contracts/index";
+@import "business/jobs/new";

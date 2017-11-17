@@ -1,42 +1,54 @@
-<h2>
-  New Job Contract for
-  <strong>
-    <%= @job_contract.job.title %>
-  </strong>
-</h2>
-<h4>
-  Hiring by
-  <strong>
-    <%= @job_contract.job.user.first_name %> <%= @job_contract.job.user.last_name %>
-  </strong>
-  <% if @job_contract.job.user.facebook_picture_url %>
-  <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-  <%= image_tag avatar_url, class: "avatar" %>
-  <% end %>
-  <% if @job_contract.job.user.business_name %>
-  for
-  <strong>
-    <%= @job_contract.job.user.business_name %>
-  </strong>
-  <% end %>
-</h4>
-<h4>
-  Current offered pay:
-  <%= @job_contract.job.user.payment_currency %><%= @job_contract.job.payment %> <%= @job_contract.payment_unit %>
-</h4>
-
-<%= simple_form_for [@job, @job_contract], html: { id: "job_contract_form" } do |f| %>
-
-<%= f.input :negotiations, label: "Negotiate Price", input_html: { id: "negotiation_for_contract" } %>
-<div class="hidden form-inline" id="show-on-accept">
-  <%= f.input :price, input_html: { min: '1', step: 'any' } %>
-  <%= f.input :payment_unit, collection: %w(contract hr day week) %>
+<div class="newjob-banner">
+  <div class="container">
+    <div class="signup-box">
+      <div class="normal-newjob">
+        <div class="text-center">
+          <h2>
+            Application for:
+            <div class="title">
+              <strong>
+                <%= @job_contract.job.title %>
+              </strong>
+            </div>
+          </h2>
+          <h5>
+            Hiring by
+            <strong>
+              <%= @job_contract.job.user.first_name %> <%= @job_contract.job.user.last_name %>
+            </strong>
+            <% avatar_url = @job.user.facebook_picture_url || "https://developer.appway.com/filesystem/d6912741f1280a6128b983842c487477225fc90a34614d857290b935c8c2e54a736ac48da2a39d13db50853310e7a9807e5611b45cc9e299/avatar.svg" %>
+            <%= image_tag avatar_url, class: "avatar" %>
+            <% if @job_contract.job.user.business_name %>
+            for
+            <strong>
+              <%= @job_contract.job.user.business_name %>
+            </strong>
+            <% end %>
+          </h5>
+          Current Payment Offer:
+          <strong>
+            <%= @job_contract.job.user.payment_currency %><%= @job_contract.job.payment %> / <%= @job_contract.job.payment_unit %>
+          </strong>
+          <%= simple_form_for [@job, @job_contract], html: { id: "job_contract_form" } do |f| %>
+          <div class="negotiate">
+            <%= f.input :negotiations, label: "I wish to Negotiate", input_html: { id: "negotiation_for_contract" } %>
+          </div>
+          <div class="hidden payment-form" id="show-on-accept">
+            <div class="form-inline">
+              <h5>
+                Counter Offer:
+              </h5>
+              <%= f.input :price, label: false, input_html: { min: '1', step: 'any', value: @job_contract.job.payment } %>
+              /
+              <%= f.input :payment_unit, label: false, collection: %w(contract hr day week), selected: @job_contract.job.payment_unit %>
+            </div>
+          </div>
+          <%= f.submit "Apply for Contract", class: "btn btn-success" %>
+          <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= f.submit "Apply for Contract", class: "btn btn-primary" %>
-
-<%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
-<% end %>
-
-
 
