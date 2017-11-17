@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row">
     <h1 class="col-xs-10 col-xs-offset-1">
-      Jobs
+      Nearby Jobs
     </h1>
     <% @jobs.each do |job| %>
+    <% unless completed?(job) || accepted?(job) %>
     <div class="card col-xs-10 col-xs-offset-1">
       <div class="job-title">
         <p>
@@ -15,9 +16,11 @@
           <strong>
             Posted By:
           </strong>
+          <%= link_to profile_path(job.user) do %>
           <%= "#{job.user.first_name} #{job.user.last_name}" %>
           <% if job.user.business_name %>
           , (<%= job.user.business_name %>)
+          <% end %>
           <% end %>
         </p>
         <p>
@@ -34,9 +37,9 @@
         </p>
         <p>
           <strong>
-            Hourly Pay:
+            Payment Offer:
           </strong>
-          <%= job.user.payment_currency %><%= job.payment %>
+          <%= job.user.payment_currency %><%= job.payment %> / <%= job.payment_unit %>
         </p>
         <p>
           <strong>
@@ -50,7 +53,7 @@
           </strong>
           <%= job.description[0..130]%>
           <% if job.description.length > 130 %>
-            ...
+          ...
           <% end %>
         </p>
         <p>
@@ -61,7 +64,10 @@
         </p>
       </div>
       <% user_picture_url = job.user.facebook_picture_url || "http://placehold.it/30x30" %>
+      <%= link_to profile_path(job.user) do %>
       <img class="card-user" src=<%= user_picture_url %>>
+      <% end %>
     </div>
+    <% end %>
     <% end %>
   </div>
