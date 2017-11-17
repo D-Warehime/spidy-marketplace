@@ -12,35 +12,43 @@
       <%= contract.user.first_name %> <%= contract.user.last_name %>
     </strong>
     <p class="price-offer">
-      Price Offer:
+      Payment Offer:
       <strong>
-       <%= contract.price %> / <%= contract.payment_unit %>
+       <%= contract.job.payment %><%= contract.job.user.payment_currency %> / <%= contract.payment_unit %>
      </strong>
    </p>
    <div>
     Request to Negotiate:
+    <% if contract.negotiations %>
     <strong>
-      <% if contract.negotiations %>
       true
-      <% else %>
-      false
-      <% end %>
     </strong>
-  </div>
-  <div class="status">
-    Status:
-    <strong>
-      <% if contract.status == nil || 0 %>
-      Pending
-      <% elsif contract.status == 1 %>
-      Declined
-      <% elsif contract.status == 2 %>
-      Accepted
-      <% elsif contract.status == 3 %>
-      Completed
-      <% end %>
-    </strong>
-  </div>
+    <p>
+      Current Negotiation Price:
+      <strong>
+       <%= contract.price %><%= contract.job.user.payment_currency %> / <%= contract.payment_unit %>
+     </strong>
+   </p>
+   <% else %>
+   <strong>
+    false
+  </strong>
+  <% end %>
+</div>
+<div class="status">
+  Status:
+  <strong>
+    <% if contract.status == nil || 0 %>
+    Pending
+    <% elsif contract.status == 1 %>
+    Declined
+    <% elsif contract.status == 2 %>
+    Accepted
+    <% elsif contract.status == 3 %>
+    Completed
+    <% end %>
+  </strong>
+</div>
 </li>
 <% end %>
 </ul>

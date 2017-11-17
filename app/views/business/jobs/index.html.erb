@@ -2,16 +2,28 @@
 <h1>You Have No Jobs</h1>
 <%= link_to "Create a Job", new_business_job_path %>
 <% else %>
-<h1>My list of Jobs</h1>
+<h1>My Posted Jobs</h1>
 <% @jobs.each do |job| %>
 <h2><%= link_to job.title, job_path(job) %></h2>
 <h5><strong>Wanted Skills: </strong><%= job.skills %></h5>
 <h5><strong>Skill level: </strong><%= job.level %></h5>
-<h5><strong>Hourly Pay: </strong><%= job.user.payment_currency %><%= job.payment %></h5>
+<h5><strong>Payment Offer: </strong><%= job.user.payment_currency %><%= job.payment %>/<%= job.payment_unit %></h5>
 <h5><strong>Job Period: </strong><%= job.starting_date %> until <%= job.ending_date %></h5>
+<h5><strong>Status: </strong>
+  <% if completed?(job) %>
+  Completed
+  <% elsif accepted?(job) %>
+  Accepted
+  <% else %>
+  Pending
+  <% end %>
+</h5>
+<h5><strong>Contract Requests: </strong><%= job.job_contracts.length %></h5>
 <p><strong>Description: </strong></p>
 <%= job.description %>
 <h6>Posted on: <%= job.created_at %></h6>
-<%= link_to "Delete This Job (not possible if currently contracted)", "jobs/#{job.id}", method: :delete, data: { confirm: "Are you sure you want to Delete this Job?" } %>
+<% unless completed?(job) %>
+<%= link_to "Delete This Job", "jobs/#{job.id}", method: :delete, data: { confirm: "Are you sure you want to Delete this Job?" } %>
+<% end %>
 <% end %>
 <% end %>

@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show ]
 
   def index
-    @jobs = Job.all.sort_by { |job| job.created_at }.reverse
+    @jobs = Job.all.sort_by(&:created_at).reverse
   end
 
   def show

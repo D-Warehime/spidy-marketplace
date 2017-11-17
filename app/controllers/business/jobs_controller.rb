@@ -1,6 +1,6 @@
 class Business::JobsController < ApplicationController
   def index
-    @jobs = current_user.jobs
+    @jobs = current_user.jobs.sort_by(&:created_at).reverse
   end
 
   def show
