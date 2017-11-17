@@ -12,6 +12,7 @@ data: { confirm: 'Are you sure?' }, method: :delete do %>
 <% end %>
 <% end %>
 <h1><%= @job.title %></h1>
+<% if current_user != @job.user %>
 <h5>
   <strong>
     Posted By:
@@ -24,6 +25,17 @@ data: { confirm: 'Are you sure?' }, method: :delete do %>
   , (<%= @job.user.business_name %>)
   <% end %>
 </h5>
+<% else %>
+<h5>
+  <strong>
+    Posted By:
+  </strong>
+  You
+  <% if @job.user.business_name %>
+  , (<%= @job.user.business_name %>)
+  <% end %>
+</h5>
+<% end %>
 <h6><strong>Posted on: </strong><%= @job.created_at %></h6>
 <h4><strong>Located at: </strong><%= @job.location %></h4>
 <h4><strong>Wanted Skills: </strong><%= @job.skills %></h4>
@@ -39,7 +51,7 @@ data: { confirm: 'Are you sure?' }, method: :delete do %>
 <% unless display_contract %>
 <% display_contract = true %>
 <h4>
-  Current Contract Offer(s):
+  Current Contract Offer:
 </h4>
 <% end %>
 <strong>
@@ -71,9 +83,11 @@ Posted by:
 </p>
 <% end %>
 <% else %>
-<h4>
+<h3>
+  <strong>
   Pending Contracts:
-</h4>
+  </strong>
+</h3>
 Posted by:
 <strong>
   <%= contract.user.first_name %> <%= contract.user.last_name %>
@@ -86,6 +100,12 @@ Posted by:
   Status:
   <%= print_status(contract) %>
 </div>
+<%= link_to "#" do %>
+<%= render 'shared/button', val: "Respond to Offer", type: "response" %>
 <% end %>
 <% end %>
 <% end %>
+<% end %>
+
+
+
