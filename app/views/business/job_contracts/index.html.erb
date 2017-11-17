@@ -3,9 +3,11 @@
   <li>
     <div>
       Position:
+      <%= link_to job_path(contract.job) do %>
       <strong>
         <%= contract.job.title %>
       </strong>
+      <% end %>
     </div>
     <p class="price-offer">
       Payment Offer:
