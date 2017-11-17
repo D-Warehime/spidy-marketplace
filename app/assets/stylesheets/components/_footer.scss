@@ -1,17 +1,21 @@
+.entire-page-container {
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+}
 .footer {
   background: #F4F4F4;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
-  max-height: 50px;
+  height: 5vh;
   padding: 20px 50px;
   color: rgba(0,0,0,0.3);
   border-top: 2px solid $spidy-green;
-  margin-top: 0px;
+  margin-top: 50px;
   bottom: 0;
   width: 100%;
-  position: relative;
+  position: absolute;
 }
 .footer-links {
   display: flex;
