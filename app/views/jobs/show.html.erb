@@ -1,3 +1,5 @@
+<div class="container-job-show">
+<div class="job-card">
 <% if user_signed_in? %>
 <% if current_user != @job.user && !applied?(current_user, @job) %>
 <%= link_to new_job_job_contract_path(@job) do%>
@@ -46,7 +48,10 @@ data: { confirm: 'Are you sure?' }, method: :delete do %>
 <p><strong>Description: </strong><%= @job.description %></p>
 
 <% display_contract = false %>
+
+</div>
 <% @job.job_contracts.all.each do |contract| %>
+<div class="current-contract-card">
 <% if contract.user == current_user %>
 <% unless display_contract %>
 <% display_contract = true %>
@@ -105,7 +110,8 @@ Posted by:
 <% end %>
 <% end %>
 <% end %>
+</div>
 <% end %>
 
-
+</div>
 
