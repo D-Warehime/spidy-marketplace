@@ -1,3 +1,11 @@
+.newjob-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 83vh;
+}
+
 .normal-newjob {
   padding: 10px 20px;
   width: 55%;
