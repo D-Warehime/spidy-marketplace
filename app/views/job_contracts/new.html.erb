@@ -22,7 +22,7 @@
 </h4>
 <h4>
   Current offered pay:
-  <%= @job_contract.job.user.payment_currency %><%= @job_contract.job.payment %> / <%= @job_contract.payment_unit %>
+  <%= @job_contract.job.user.payment_currency %><%= @job_contract.job.payment %> <%= @job_contract.payment_unit %>
 </h4>
 
 <%= simple_form_for [@job, @job_contract], html: { id: "job_contract_form" } do |f| %>
@@ -32,7 +32,9 @@
   <%= f.input :price, input_html: { min: '1', step: 'any' } %>
   <%= f.input :payment_unit, collection: %w(contract hr day week) %>
 </div>
+
 <%= f.submit "Apply for Contract", class: "btn btn-primary" %>
+
 <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
 <% end %>
 
