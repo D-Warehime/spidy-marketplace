@@ -3,85 +3,87 @@
     <h1 class="col-xs-10 col-xs-offset-1">
       \\ Nearby Jobs
     </h1>
+  </div>
+  <div class="row">
+
     <% @jobs.each do |job| %>
     <% unless completed?(job) || accepted?(job) %>
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="card-container">
+        <div class="card-image">
+          <%= image_tag "spidy-logo.svg"%>
 
-
-    <div class="card-container col-xs-10 col-xs-offset-1">
-      <div class="card-image">
-        <%= image_tag "spidy-logo.svg"%>
-
-      </div>
-
-      <div class="card-content">
-
-        <div class="job-title">
-          <p>
-            <%= link_to "Looking For: #{job.title.capitalize}", job_path(job) %>
-          </p>
         </div>
-        <div class="row-content">
-          <div class="card-description">
+
+        <div class="card-content">
+
+          <div class="job-title">
             <p>
-              <strong>
-                Posted By:
-              </strong>
-              <%= link_to profile_path(job.user) do %>
-              <%= "#{job.user.first_name} #{job.user.last_name}" %>
-              <% if job.user.business_name %>
-              , (<%= job.user.business_name %>)
-              <% end %>
-              <% end %>
+              <%= link_to "Looking For: #{job.title.capitalize}", job_path(job) %>
             </p>
-            <p>
-              <strong>
-                Recommended Skills:
-              </strong>
-              <%= job.skills %>
-            </p>
-            <p>
-              <strong>
-                Skill Level:
-              </strong>
-              <%= job.level %>
-            </p>
-            <p>
-              <strong>
-                Payment Offer:
-              </strong>
-              <%= job.user.payment_currency %><%= job.payment %> / <%= job.payment_unit %>
-            </p>
-            <p>
-              <strong>
-                Job Period:
-              </strong>
-              <%= job.starting_date %> until <%= job.ending_date %>
-            </p>
-            <p>
-              <strong>
-                Description:
-              </strong>
-              <%= job.description[0..130]%>
-              <% if job.description.length > 130 %>
-              ...
-              <% end %>
-            </p>
-            <hr/>
-            <ul class="list-inline product-controls hidden-sm hidden-xs">
-              <li><a><i class="fa fa-heart"></i></a> &nbsp <%= job.job_contracts.length %> </li>
-              <li> | </li>
-              <li><strong>Posted on:</strong> <%= job.created_at %></a></li>
-            </ul>
           </div>
+          <div class="row-content">
+            <div class="card-description">
+              <p>
+                <strong>
+                  Posted By:
+                </strong>
+                <%= link_to profile_path(job.user) do %>
+                <%= "#{job.user.first_name} #{job.user.last_name}" %>
+                <% if job.user.business_name %>
+                , (<%= job.user.business_name %>)
+                <% end %>
+                <% end %>
+              </p>
+              <p>
+                <strong>
+                  Recommended Skills:
+                </strong>
+                <%= job.skills %>
+              </p>
+              <p>
+                <strong>
+                  Skill Level:
+                </strong>
+                <%= job.level %>
+              </p>
+              <p>
+                <strong>
+                  Payment Offer:
+                </strong>
+                <%= job.user.payment_currency %><%= job.payment %> / <%= job.payment_unit %>
+              </p>
+              <p>
+                <strong>
+                  Job Period:
+                </strong>
+                <%= job.starting_date %> until <%= job.ending_date %>
+              </p>
+              <p>
+                <strong>
+                  Description:
+                </strong>
+                <%= job.description[0..130]%>
+                <% if job.description.length > 130 %>
+                ...
+                <% end %>
+              </p>
+              <hr/>
+              <ul class="list-inline product-controls hidden-sm hidden-xs">
+                <li><a><i class="fa fa-heart"></i></a> &nbsp <%= job.job_contracts.length %> </li>
+                <li> | </li>
+                <li><strong>Posted on:</strong> <%= job.created_at %></a></li>
+              </ul>
+            </div>
+          </div>
+          <% user_picture_url = job.user.facebook_picture_url || "https://developer.appway.com/filesystem/d6912741f1280a6128b983842c487477225fc90a34614d857290b935c8c2e54a736ac48da2a39d13db50853310e7a9807e5611b45cc9e299/avatar.svg" %>
+          <%= link_to profile_path(job.user) do %>
+          <img class="card-user" src=<%= user_picture_url %>>
+          <% end %>
         </div>
-      <% user_picture_url = job.user.facebook_picture_url || "https://developer.appway.com/filesystem/d6912741f1280a6128b983842c487477225fc90a34614d857290b935c8c2e54a736ac48da2a39d13db50853310e7a9807e5611b45cc9e299/avatar.svg" %>
-      <%= link_to profile_path(job.user) do %>
-      <img class="card-user" src=<%= user_picture_url %>>
-      <% end %>
+      </div>
     </div>
     <% end %>
     <% end %>
-
-
   </div>
 </div>
