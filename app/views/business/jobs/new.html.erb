@@ -7,8 +7,11 @@
         <%= simple_form_for [:business, @job] do |f| %>
         <%= f.error_notification %>
         <%= f.input :title, label: "Job Title: " %>
+        <strong>
+          Pay Offer:
+        </strong>
         <div class="form-inline payment-offer">
-          <%= f.input :payment, label: "Pay Offer:", input_html: { value: 15 } %>
+          <%= f.input :payment, label: false, input_html: { value: 15 } %>
           /
           <%= f.input_field :payment_unit, collection: %w(contract hr day week) %>
         </div>
