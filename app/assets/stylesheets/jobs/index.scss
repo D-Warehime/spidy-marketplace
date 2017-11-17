@@ -1,17 +1,37 @@
-.card {
-  height: 300px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+
+h1 {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  color: $spidy-green;
+  font-weight: 800;
+}
+
+p {
+  font-weight: 500;
+}
+
+.card-container {
+  display: flex;
+  background: white;
+  height: 400px;
+  /* text-shadow: 0 1px 3px rgba(0,0,0,0.15); */
   background-size: cover !important;
-  background-position: center;
+  /* background-position: center; */
   color: black;
-  position: relative;
+  /* position: relative; */
   transition: border-shadow 300ms ease;
-  border-radius: 3px;
   transition: box-shadow 150ms ease;
+  margin-bottom: 20px;
+  padding-right: 0px;
+  transform: scale(1);
   &:hover {
-    box-shadow: 0 0 10px $spidy-green;
+    box-shadow: 0 0 2px $spidy-green;
+    box-shadow: 0 0 10px #79C8A1;
+    transform: scale(1.01);
+    transition: all 0.3s;
   }
 }
+
 .card-user {
   position: absolute;
   right: 10px;
@@ -20,27 +40,42 @@
   border-radius: 50%;
 }
 .job-title {
-  position: absolute;
   top: 10px;
   left: 10px;
-  font-size: 15px;
+  font-size: 18px;
   text-transform: uppercase;
+  padding-left: 30px;
+
+  p {
+    background-color: #79C8A1;
+    padding: 20px;
+
+    a {
+      color: white;
+      text-decoration:none;
+    }
+  }
+
 }
-.card-description {
+/* .card-description {
+  margin-top: 20px;
   position: absolute;
   bottom: 10px;
   left: 10px;
-}
+} */
+
 .card-description h2 {
   font-size: 24px;
 }
+
 .card-description p {
   font-size: 14px;
   opacity: 0.7;
-  font-weight: lighter;
+
+  /* font-weight: lighter; */
 }
+
 .card-link {
-  position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
@@ -48,4 +83,33 @@
   z-index: 2;
   background: black;
   opacity: 0;
+}
+
+.row-content {
+  padding-left: 30px;
+  color: gray;
+}
+
+.card-image {
+  flex: 0 0 250px;
+  display: flex;
+}
+
+.card-description {
+  display: flex;
+  flex-grow: 0;
+  flex-direction: column;
+  padding-right: 30px;
+}
+
+hr {
+  border:none;
+  border-top:1px solid;/* or bottom */
+  margin:1em 0%; /* 15% or whatever fixed or % value that suits your needs*/
+  color: #79C8A1;
+}
+
+.product-controls a{
+    font-size: 17px;
+    color: #D3473C !important;
 }
