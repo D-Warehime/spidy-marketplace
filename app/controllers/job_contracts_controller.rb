@@ -9,11 +9,10 @@ class JobContractsController < ApplicationController
 
   def create
     @job_contract = JobContract.new(job_contract_params)
-    if params[:price] == nil
+    if params["job_contract"][:price] == ""
       @job_contract.price = @job.payment
       @job_contract.payment_unit = @job.payment_unit
     end
-
     @job_contract.job = @job
     @job_contract.user = current_user
 

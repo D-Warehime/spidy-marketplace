@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       resources :job_contracts, only: [ :index ]
     end
 
-    resources :job_contracts, only: [ :index ] do
+    resources :job_contracts, only: [ :index, :destroy ] do
       member do
         patch 'accept'
         patch 'decline'

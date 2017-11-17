@@ -12,7 +12,7 @@
     <p class="price-offer">
       Payment Offer:
       <strong>
-       <%= contract.job.payment %><%= contract.job.user.payment_currency %> / <%= contract.payment_unit %>
+       <%= contract.job.payment %><%= contract.job.user.payment_currency %> / <%= contract.job.payment_unit %>
      </strong>
    </p>
    <div>
@@ -47,9 +47,9 @@
     <% end %>
   </strong>
 </div>
-</li>
-<%= link_to "#" do %>
-<%= render 'shared/button', val: "Respond to Offer", type: "response" %>
+<%= link_to business_job_contract_path(contract), data: { confirm: 'Are you sure?' }, method: :delete do %>
+<%= render 'shared/button', val: "Remove Contract Offer", type: "delete" %>
 <% end %>
+</li>
 <% end %>
 </ul>
