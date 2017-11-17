@@ -5,20 +5,17 @@
     <img class="profile-avatar" src=<%= user_picture_url %>>
     <br>
     <%= "#{@profile.first_name} #{@profile.last_name}" %>
+    <%= @profile.phone_number %>
     <br>
+    <%= @profile.email %>
+    <br>
+
 
     <% if current_user == @profile %>
       <%= link_to edit_profile_path(@profile.id) do %>
             <i class="fa fa-pencil-square-o"></i> <%= t(".edit", default: "Edit Profile") %>
             <% end %>
     <% end %>
-  </div>
-
-
-  <div class="profile-body-card">
-    <%= @profile.phone_number %>
-    <br>
-    <%= @profile.email %>
   </div>
 
   <div class="profile-body-card">
