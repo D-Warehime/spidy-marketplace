@@ -56,6 +56,11 @@
             <% end %>
           </li>
           <li>
+            <%= link_to business_job_contracts_path do %>
+            <i class="fa fa-exclamation-circle"></i>  <%= t(".profile", default: "Received Contracts") %>
+            <% end %>
+          </li>
+          <li>
             <%= link_to business_jobs_path do %>
             <i class="fa fa-clock-o"></i>  <%= t(".profile", default: "Previous Jobs") %>
             <% end %>
