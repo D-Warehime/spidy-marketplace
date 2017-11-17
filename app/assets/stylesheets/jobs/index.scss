@@ -97,6 +97,7 @@ p {
   width: 100%;
   flex: 0 0 250px;
   display: flex;
+  margin-right: 20px;
 }
 
 .card-description {
@@ -114,8 +115,8 @@ hr {
 }
 
 .product-controls a{
-    font-size: 17px;
-    color: #D3473C !important;
+  font-size: 17px;
+  color: #D3473C !important;
 }
 
 .card-content {
