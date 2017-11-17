@@ -1,58 +1,62 @@
+<% if @job_contracts.length.zero? %>
+<h1>You Have Not Applied for Any Jobs</h1>
+<% end %>
+
 <div class="business-contracts-container">
-<ul>
-  <% @job_contracts.each do |contract| %>
-  <div class="business-contract-card text-center">
-  <li>
-    <div>
-      Position:
-      <%= link_to job_path(contract.job) do %>
-      <strong>
-        <%= contract.job.title %>
+  <ul>
+    <% @job_contracts.each do |contract| %>
+    <div class="business-contract-card text-center">
+      <li>
+        <div>
+          Position:
+          <%= link_to job_path(contract.job) do %>
+          <strong>
+            <%= contract.job.title %>
+          </strong>
+          <% end %>
+        </div>
+        <p class="price-offer">
+          Payment Offer:
+          <strong>
+           <%= contract.job.payment %><%= contract.job.user.payment_currency %> / <%= contract.job.payment_unit %>
+         </strong>
+       </p>
+       <div>
+        Request to Negotiate:
+        <% if contract.negotiations %>
+        <strong>
+          true
+        </strong>
+        <p>
+          Current Negotiation Price:
+          <strong>
+           <%= contract.price %><%= contract.job.user.payment_currency %> / <%= contract.payment_unit %>
+         </strong>
+       </p>
+       <% else %>
+       <strong>
+        false
       </strong>
       <% end %>
     </div>
-    <p class="price-offer">
-      Payment Offer:
+    <div class="status">
+      Status:
       <strong>
-       <%= contract.job.payment %><%= contract.job.user.payment_currency %> / <%= contract.job.payment_unit %>
-     </strong>
-   </p>
-   <div>
-    Request to Negotiate:
-    <% if contract.negotiations %>
-    <strong>
-      true
-    </strong>
-    <p>
-      Current Negotiation Price:
-      <strong>
-       <%= contract.price %><%= contract.job.user.payment_currency %> / <%= contract.payment_unit %>
-     </strong>
-   </p>
-   <% else %>
-   <strong>
-    false
-  </strong>
-  <% end %>
-</div>
-<div class="status">
-  Status:
-  <strong>
-    <% if contract.status == nil || 0 %>
-    Pending
-    <% elsif contract.status == 1 %>
-    Declined
-    <% elsif contract.status == 2 %>
-    Accepted
-    <% elsif contract.status == 3 %>
-    Completed
+        <% if contract.status == nil || 0 %>
+        Pending
+        <% elsif contract.status == 1 %>
+        Declined
+        <% elsif contract.status == 2 %>
+        Accepted
+        <% elsif contract.status == 3 %>
+        Completed
+        <% end %>
+      </strong>
+    </div>
+    <%= link_to business_job_contract_path(contract), data: { confirm: 'Are you sure?' }, method: :delete do %>
+    <%= render 'shared/button', val: "Remove Contract Offer", type: "delete" %>
     <% end %>
-  </strong>
-</div>
-<%= link_to business_job_contract_path(contract), data: { confirm: 'Are you sure?' }, method: :delete do %>
-<%= render 'shared/button', val: "Remove Contract Offer", type: "delete" %>
-<% end %>
-</div>
+  </div>
 </li>
 <% end %>
 </ul>
