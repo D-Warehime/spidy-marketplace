@@ -46,6 +46,7 @@ p {
   text-transform: uppercase;
   padding-left: 30px;
 
+
   p {
     background-color: #79C8A1;
     padding: 20px;
@@ -91,6 +92,7 @@ p {
 }
 
 .card-image {
+  width: 100%;
   flex: 0 0 250px;
   display: flex;
 }
@@ -112,4 +114,8 @@ hr {
 .product-controls a{
     font-size: 17px;
     color: #D3473C !important;
+}
+
+.card-content {
+  flex: 1 0 auto;
 }
