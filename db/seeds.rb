@@ -21,6 +21,7 @@ User.destroy_all
     industry: Faker::Job.field,
     location: Faker::Address.city,
     payment: (10..20).to_a.sample,
+    payment_unit: ['contract', 'hr', 'day', 'week'].sample,
     starting_date: Faker::Date.between((1..30).to_a.sample.days.ago, Date.today),
     ending_date: Faker::Date.between(Date.today, Date.today)
   )
