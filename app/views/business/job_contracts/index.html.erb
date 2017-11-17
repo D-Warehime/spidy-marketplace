@@ -1,5 +1,7 @@
+<div class="business-contracts-container">
 <ul>
   <% @job_contracts.each do |contract| %>
+  <div class="business-contract-card text-center">
   <li>
     <div>
       Position:
@@ -50,6 +52,8 @@
 <%= link_to business_job_contract_path(contract), data: { confirm: 'Are you sure?' }, method: :delete do %>
 <%= render 'shared/button', val: "Remove Contract Offer", type: "delete" %>
 <% end %>
+</div>
 </li>
 <% end %>
 </ul>
+</div>
