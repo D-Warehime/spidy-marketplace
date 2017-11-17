@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
 
   def show
     if (@profile.facebook_picture_url) == nil
-      @profile_picture_url = "http://placehold.it/50x50"
+      @profile_picture_url = "https://developer.appway.com/filesystem/d6912741f1280a6128b983842c487477225fc90a34614d857290b935c8c2e54a736ac48da2a39d13db50853310e7a9807e5611b45cc9e299/avatar.svg"
     else
       url_temp = @profile.facebook_picture_url[0..-7]
       @profile_picture_url = "#{url_temp}large"

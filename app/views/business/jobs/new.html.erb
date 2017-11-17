@@ -1,17 +1,29 @@
-<h1>New Job</h1>
-<%= simple_form_for [:business, @job] do |f| %>
-<%= f.error_notification %>
-<%= f.input :title, label: "Job: " %>
-<%= f.input :description %>
-<%= f.input :skills %>
-<%= f.input :level %>
-<%= f.input :industry %>
-<%= f.input :location %>
-<div class="form-inline">
-  <%= f.input :payment %>
-  <%= f.input :payment_unit, collection: %w(contract hr day week) %>
+
+<div class="newjob-banner">
+  <div class="container">
+    <div class="signup-box">
+      <div class="normal-newjob">
+        <h1 class="text-center">New Job</h1>
+        <%= simple_form_for [:business, @job] do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :title, label: "Job Title: " %>
+        <div class="form-inline payment-offer">
+          <%= f.input :payment, label: "Pay Offer:", input_html: { value: 15 } %>
+          /
+          <%= f.input_field :payment_unit, collection: %w(contract hr day week) %>
+        </div>
+        <%= f.input :location, input_html: { value: current_user.location } %>
+        <%= f.input :description %>
+        <%= f.input :level %>
+        <%= f.input :skills %>
+        <%= f.input :industry %>
+        <%= f.input :starting_date %>
+        <%= f.input :ending_date %>
+        <div class="text-center">
+          <%= f.button :submit %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-<%= f.input :starting_date %>
-<%= f.input :ending_date %>
-<%= f.button :submit %>
-<% end %>
