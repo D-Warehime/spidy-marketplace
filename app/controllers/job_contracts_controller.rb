@@ -31,8 +31,6 @@ class JobContractsController < ApplicationController
   end
 
   def job_contract_params
-    #
       params.require(:job_contract).permit(:status, :price, :payment_unit, :freelancer_rating, :negotiations)
-    # end
   end
 end
