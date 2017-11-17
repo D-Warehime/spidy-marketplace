@@ -94,7 +94,7 @@ Posted by:
 </strong>
 <p>
   Price Offer:
-  <%= contract.price %> / <%= contract.payment_unit %>
+  <%= contract.user.payment_currency %><%= contract.price %> / <%= contract.payment_unit %>
 </p>
 <div class="status">
   Status:
