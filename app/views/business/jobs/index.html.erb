@@ -1,9 +1,11 @@
+<div class="container-business-jobs">
 <% if @jobs.size == 0 %>
 <h1>You Have No Jobs</h1>
 <%= link_to "Create a Job", new_business_job_path %>
 <% else %>
 <h1>My Posted Jobs</h1>
 <% @jobs.each do |job| %>
+<div class="business-job-card">
 <h2><%= link_to job.title, job_path(job) %></h2>
 <h5><strong>Wanted Skills: </strong><%= job.skills %></h5>
 <h5><strong>Skill level: </strong><%= job.level %></h5>
@@ -28,5 +30,7 @@ data: { confirm: 'Are you sure?' }, method: :delete do %>
 <%= render 'shared/button', val: "Delete", type: "delete" %>
 <% end %>
 <% end %>
+</div>
 <% end %>
 <% end %>
+</div>
